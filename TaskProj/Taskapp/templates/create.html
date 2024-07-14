@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile form</title>
+    <link
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">Create Profile</h1>
+    <form class="container mt-5">
+        {% csrf_token %}
+        <div class ="mb-3 mr-5">
+            <input type="text" class="form-control" id="full_name" placeholder="full name">
+        </div>
+        <div class="mb-3 mr-5">
+            <input type="email" class="form-control" id="email" placeholder="email asddress">
+        </div>
+        <div class="mb-3 mr-5">
+            <input type="number" class="form-control" id="phone" placeholder="phone">
+        </div>
+        <input type="submit" class="btn btn-success" value="submit">
+    </form>
+</div>
+<script type="text/javascript">$document.on('submit','#post-form',function(e)
+{
+    e.preventDefault();
+    $.ajax({
+    type:'POST',
+    url:'/create',
+    data:{
+    full_name:$('#full_name').val(),
+    email:$('#email').val(),
+    phone:$('#phone').val(),
+    csrfmididdlewaretoken:$('input[name=csrfmiddlewaretoken]').val()},
+    success:function(data){
+    (h5).html(data)
+    }
+    })
+    })
+</script>
+<script src=""></script>
+
+</body>
+</html>
